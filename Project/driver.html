@@ -1,0 +1,140 @@
+<html>
+    <head>
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Driver Registration</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <link rel="stylesheet" href="sweetalert2/sweetalert2.css">
+    <script src="sweetalert2/sweetalert2.min.js"></script>
+   
+       <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+       <link rel="stylesheet" href="login.css">
+       <link rel="stylesheet" href="landing_page.css">
+       <link rel="stylesheet" href="select.css">
+    </head>
+    <body style="background-color:white";>
+  
+      <center>
+        <div class="details">
+         <a href="index.php"><button class="btn">back</button></a>
+         <a href="Logout.php"><button class="btn">Logout</button></a><br/><br/>
+</div>   
+       </center>
+             
+           <form action="driver.php" method="POST" enctype="multipart/form-data">
+          <center>
+		   <div class="details">
+		 <h2>Driver Registration</h2><br/>
+           
+           <input type="text" name="D_name" placeholder="Driver Name" required="required" /><br/>
+           <div class="custom-select" style="width:200px;">
+            <select name="gender" >
+             <option value="Male">Male</option>
+             <option value="Female">Female</option>
+             <option value="Others">Others</option>
+           </select>
+           </div>
+
+           <input type="file" name="fileToUpload" id="fileToUpload" required>
+           
+           
+           <input type="text" name="Phone_no" placeholder="Phone Number" required="required" /><br/>
+          <input type="text"  name="D_license" placeholder="License No"><br/>
+          <input id="D_l_valid" type="text" class="form-control" name="D_l_valid" placeholder="Validity date [format(yyyy-mm-dd)]">        
+           <input type="text" name="House_no" placeholder="House Number" required="required" /><br/>
+           <input type="text" name="Street" placeholder="Street Name/Number" required="required" /><br/>
+           <input type="text" name="City" placeholder="City" required="required" /><br/>
+           <input type="text" name="Pincode" placeholder="Pincode" required="required" /><br/>
+           <input type="text" name="vid" placeholder="Vehicle id" required="required" /> <br/>
+            <button type="submit" name="submit" class="btn btn2 btn-success">Register</button>
+      </div>
+    </center>
+        </form>
+</div>
+<script>
+  var x, i, j, l, ll, selElmnt, a, b, c;
+/*look for any elements with the class "custom-select":*/
+x = document.getElementsByClassName("custom-select");
+l = x.length;
+for (i = 0; i < l; i++) {
+selElmnt = x[i].getElementsByTagName("select")[0];
+ll = selElmnt.length;
+/*for each element, create a new DIV that will act as the selected item:*/
+a = document.createElement("DIV");
+a.setAttribute("class", "select-selected");
+a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+x[i].appendChild(a);
+/*for each element, create a new DIV that will contain the option list:*/
+b = document.createElement("DIV");
+b.setAttribute("class", "select-items select-hide");
+for (j = 1; j < ll; j++) {
+  /*for each option in the original select element,
+  create a new DIV that will act as an option item:*/
+  c = document.createElement("DIV");
+  c.innerHTML = selElmnt.options[j].innerHTML;
+  c.addEventListener("click", function(e) {
+      /*when an item is clicked, update the original select box,
+      and the selected item:*/
+      var y, i, k, s, h, sl, yl;
+      s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+      sl = s.length;
+      h = this.parentNode.previousSibling;
+      for (i = 0; i < sl; i++) {
+        if (s.options[i].innerHTML == this.innerHTML) {
+          s.selectedIndex = i;
+          h.innerHTML = this.innerHTML;
+          y = this.parentNode.getElementsByClassName("same-as-selected");
+          yl = y.length;
+          for (k = 0; k < yl; k++) {
+            y[k].removeAttribute("class");
+          }
+          this.setAttribute("class", "same-as-selected");
+          break;
+        }
+      }
+      h.click();
+  });
+  b.appendChild(c);
+}
+x[i].appendChild(b);
+a.addEventListener("click", function(e) {
+    /*when the select box is clicked, close any other select boxes,
+    and open/close the current select box:*/
+    e.stopPropagation();
+    closeAllSelect(this);
+    this.nextSibling.classList.toggle("select-hide");
+    this.classList.toggle("select-arrow-active");
+  });
+}
+function closeAllSelect(elmnt) {
+/*a function that will close all select boxes in the document,
+except the current select box:*/
+var x, y, i, xl, yl, arrNo = [];
+x = document.getElementsByClassName("select-items");
+y = document.getElementsByClassName("select-selected");
+xl = x.length;
+yl = y.length;
+for (i = 0; i < yl; i++) {
+  if (elmnt == y[i]) {
+    arrNo.push(i)
+  } else {
+    y[i].classList.remove("select-arrow-active");
+  }
+}
+for (i = 0; i < xl; i++) {
+  if (arrNo.indexOf(i)) {
+    x[i].classList.add("select-hide");
+  }
+}
+}
+/*if the user clicks anywhere outside the select box,
+then close all select boxes:*/
+document.addEventListener("click", closeAllSelect);
+</script>
+ </body>
+</html>

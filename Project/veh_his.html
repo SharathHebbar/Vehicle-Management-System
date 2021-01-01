@@ -1,0 +1,49 @@
+<html>
+    <head>
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vehicle-History Registration</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+       <link rel="stylesheet" href="login.css">
+     <link rel="stylesheet" href="landing_page.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <link rel="stylesheet" href="sweetalert2/sweetalert2.css">
+    <script src="sweetalert2/sweetalert2.min.js"></script>
+  
+ 
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    </head>
+    <body style="background-color:white";>
+            <div class="container">
+	<center>
+                <div class="details">
+                 <a href="index.php"><button class="btn">Back</button></a>
+                 <a href="Logout.php"><button class="btn">Logout</button></a><br/><br/>
+	 </div>   
+               </center>
+	           <form action="veh_his.php" method="POST">
+		   <div class="details">
+		  <center> <h2>Vehicle_History Registration</h2></center><br>
+          
+            <div class="details"><p>Status</p>&nbsp;
+                      <label><input type="radio" name="Status" value="Working">Working</label> &nbsp;
+                      <label><input type="radio" name="Status" value="Not Working">Not Working</label>  &nbsp;
+                    </div>
+           <input type="text" name="Mileage" placeholder="Mileage (kmpl)" required="required" /> <br/></tr>
+           <input type="text" name="Distance" placeholder="Distance (km)" required="required" /> <br/></tr>
+           <div class="details"><p>Accident</p>&nbsp;
+                      <label><input type="radio" name="Accident" value="Yes">Yes</label> &nbsp;
+                      <label><input type="radio" name="Accident" value="No">No</label>  &nbsp;
+                    </div>          
+                    <input type="text" name="V_id" placeholder="Vehicle ID" required="required" /> <br/></tr>
+           <button type="submit" name="submit" class="btn btn2 btn-success">Register</button>
+			</div>
+        </form>
+</div>
+
+ </body>
+</html>

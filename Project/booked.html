@@ -1,0 +1,51 @@
+<html>
+    <head>
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Booking Details</title>
+       <link rel="stylesheet" href="login.css">
+       <link rel="stylesheet" href="landing_page.css">
+       <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+     <link rel="stylesheet" href="sweetalert2/sweetalert2.css">
+    <script src="sweetalert2/sweetalert2.min.js"></script>
+
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    </head>
+    <body style="background-color:white";>
+            
+        <div class="container">
+	<center>
+                <div class="details">
+                 <a href="index.php"><button class="btn">Back</button></a>
+                 <a href="Logout.php"><button class="btn">Logout</button></a><br/><br/>
+	 </div>   
+               </center>
+           <form action="booked.php" method="POST">
+		   <div class="details">
+		  <center> <h2>Booking details</h2></center><br>
+           
+           
+            <input id="Date" type="text" class="form-control" name="Date" placeholder="Date[format(yyyy-mm-dd)]">
+
+
+            <input id="Time" type="text"  name="Time" placeholder="Time [24hrs format(hh:mm:ss)]">    
+           <input type="text" name="Amt_paid" placeholder="Amount" required="required" /> <br/>
+          <div class="details"><p><b>Status</b></p>&nbsp;
+                      <label><input type="radio" name="type" value="Sucess">Sucess</label> &nbsp;
+                      <label><input type="radio" name="type" value="Failure">Failure</label>  &nbsp;
+                    </div>
+           <input type="text" name="B_veh_id" placeholder="Vehicle id" required="required" /> <br/></tr>
+           
+          <button type="submit" name="submit" class="btn btn2 btn-success">Register</button>
+			</div>
+        </form>
+</div>
+
+
+ </body>
+</html>
